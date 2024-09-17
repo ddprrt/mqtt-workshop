@@ -1,7 +1,5 @@
 # Workshop Repo: Intro to Rust with MQTT
 
-> *NOTE*: This is Work-In-Progress! Please check for updates a day before the workshop.
-
 This GitHub repo will contain all the examples and workshops files we create during our time together.
 
 ## Install Rust
@@ -14,7 +12,69 @@ This GitHub repo will contain all the examples and workshops files we create dur
 
 [and many more](https://rust-lang.github.io/rustup-components-history/). *Rustup* also allows you to install different compile targets and multiple toolchains, as well as keeping your toolchains up to date.
 
-After installing, you should have a set of new command line tools available.
+### Install Rust on Linux
+
+![Rustup.rs website](https://i.imgur.com/3LI5HsW.png)
+
+#### Prerequisites
+
+You need `curl` and `cmake` installed on your system. Install both with the package manager of your choice/distribution. Alternatively, install the basic development tools for your distribution, e.g.
+
+- for Arch Linux: `sudo pacman -S base-devel`
+- for Ubuntu: `sudo apt install build-essential`
+- for Centos: `sudo yum install gcc`
+- for Solus: `sudo eopkg it -c system.devel`
+
+#### Rustup
+
+1. Go to [rustup.rs](https://rustup.rs)
+2. Copy the command for Linux and run it in your terminal / command line of choice. The line should look like this:
+
+```bash
+$ curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+```
+
+*Troubleshooting*: Some Linux distributions don't allow to connect via TLS v1.2. Change the `--tlsv1.2` to `--tlsv1.3` if you encounter any issues.
+
+You will be prompted with a text that ends with...
+
+```
+  default host triple: x86_64-unknown-linux-gnu
+    default toolchain: stable (default)
+              profile: default
+ modify PATH variable: yes
+
+1) Proceed with standard installation (default - just press enter)
+2) Customize installation
+3) Cancel installation
+```
+
+Rust will be installed in your home directory. Usually, the default parameters are fine, unless you want to work exclusively and specifically with a different toolchain. For the contents of this workshop, continue with the default and press `Enter`.
+
+After installing, you will be prompted with the following message:
+
+```
+To configure your current shell, you need to source
+the corresponding env file under $HOME/.cargo.
+
+This is usually done by running one of the following (note the leading DOT):
+. "$HOME/.cargo/env"            # For sh/bash/zsh/ash/dash/pdksh
+source "$HOME/.cargo/env.fish"  # For fish
+```
+
+3. If it didn't happen automatically, add the corresponding line to your shell configuration file. After installing, you should have a set of new command line tools available.
+
+### Install Rust on MacOS
+
+Installing Rust on MacOS works very similar to Linux. You might be prompted to install Apple's XCode command line tools:
+
+```bash
+$ xcode-select --install
+````
+
+### Install Rust on Windows
+
+You can either install Rust on Windows via the [official installer `.exe` found on](https://rustup.rs) or use the _Windows Subsystem for Linux_ (see above). For the `.exe` version, you will be prompted to install a linker via the Visual Studio Build Tools.
 
 ### Verify your Rust installation:
 
@@ -22,7 +82,6 @@ After installing, you should have a set of new command line tools available.
 2. Check out this repo
 3. Navigate to this repository
 4. Enter
-
 
 ```bash
 $ cargo build
@@ -39,6 +98,10 @@ $ cargo run
 ```
 
 And check if the output is "Hello, MQTT".
+
+### Updating Rust
+
+If you've already Rust installed on your system, please update to version 1.81 before the workshop.
 
 ## Recommended Editor
 
@@ -65,44 +128,6 @@ We recommend the following extensions:
 - [Better TOML](https://marketplace.visualstudio.com/items?itemName=bungcip.better-toml). TOML is the format that the dependency manager Cargo uses to manage dependencies. This extension helps formatting and editing TOML files
 
 - [Error Lens](https://marketplace.visualstudio.com/items?itemName=usernamehw.errorlens). Inline errors
-
-## Tasks
-
-We want to learn basic Rust concepts by subscribing and publishing to an MQTT broker. We use the `rumqttc` crate and `test.mosquitto.org` as our MQTT broker. Code along as we go through the following tasks:
-
-1. [ ] Check out dependencies
-2. [ ] Create an MQTT Client
-3. [ ] Subscribe to a topic
-4. [ ] Discuss:
-    - [ ] Mutable vs. Immutable declaration
-    - [ ] Tuple destructiring
-    - [ ] Unwrap
-5. [ ] Create a `SensorData` struct
-6. [ ] Derive common traits
-7. [ ] Use a tuple type to abstract temperature
-8. [ ] Implement
-    - [ ] `From<f64>` for `Celsius`
-    - [ ] `Display` for `Celsius`
-9. [ ] Mock `SensorData` generation using a  `read_sensor_data` function
-10. [ ] `read_sensor_data` can error, model accordingly!
-11. [ ] Read and publish sensor data in its own thread
-12. [ ] Convert data to JSON befor publishing
-13. [ ] Discuss
-    - [ ] Move semantics
-    - [ ] `match` expressions
-    - [ ] `Result` type
-    - [ ] Shadowing
-14. [ ] Retrieve and print sensor data from MQTT broker
-15. [ ] Discuss
-    - [ ] Ownership rules
-    - [ ] Iterators
-    - [ ] `if let` expressions
-    - [ ] Data conversions to `&[u8]` (slices)
-16. [ ] Refactor the main thread
-17. [ ] Happy path programming and proper error handling
-18. [ ] Discuss
-    - [ ] `Box<dyn Error>` vs conversions
-
 
 ## Snippets
 
