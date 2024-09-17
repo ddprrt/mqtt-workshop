@@ -49,7 +49,7 @@ You will be prompted with a text that ends with...
 3) Cancel installation
 ```
 
-Rust will be installed in your home directory. Usually, the default parameters are fine, unless you want to work exclusively and specifically with a different toolchain. For the contents of this workshop, continue with the default and press `Enter`.
+Rust will be installed in your home directory. Usually, the default parameters are fine, unless you want to work exclusively and specifically with a different toolchain. You find a list of toolchains [here](https://rust-lang.github.io/rustup-components-history/). For the contents of this workshop, continue with the default and press `Enter`.
 
 After installing, you will be prompted with the following message:
 
@@ -66,7 +66,7 @@ source "$HOME/.cargo/env.fish"  # For fish
 
 ### Install Rust on MacOS
 
-Installing Rust on MacOS works very similar to Linux. You might be prompted to install Apple's XCode command line tools:
+Installing Rust on MacOS works very similar to Linux. Go to [rustup.rs](https://rustup.rs), copy the command and execute them in your command line of choice. You might be prompted to install Apple's XCode command line tools:
 
 ```bash
 $ xcode-select --install
@@ -74,7 +74,7 @@ $ xcode-select --install
 
 ### Install Rust on Windows
 
-You can either install Rust on Windows via the [official installer `.exe` found on](https://rustup.rs) or use the _Windows Subsystem for Linux_ (see above). For the `.exe` version, you will be prompted to install a linker via the Visual Studio Build Tools.
+You can either install Rust on Windows via the [official installer `.exe` found on Rustup.rs](https://rustup.rs) or use the _Windows Subsystem for Linux_ (see above). For the `.exe` version, you will be prompted to install a linker via the Visual Studio Build Tools.
 
 ### Verify your Rust installation:
 
@@ -102,6 +102,10 @@ And check if the output is "Hello, MQTT".
 ### Updating Rust
 
 If you've already Rust installed on your system, please update to version 1.81 before the workshop.
+
+```bash
+$ rustup update
+```
 
 ## Recommended Editor
 
