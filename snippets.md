@@ -11,7 +11,7 @@ client
 // ...
 
 for notification in connection.iter() {
-    println("{:?}", notification)
+    println!("{:?}", notification)
 }
 ```
 
